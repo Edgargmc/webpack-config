@@ -9,7 +9,7 @@ import swordSvg from "../images/sword.svg"
             <section className="hero"></section>
              <main>
                  <section>
-                     <h1>React Refresh..s</h1>
+                     <h1>React Refresh</h1>
                  </section>
              </main>
              <img src={sword} alt="sword" width="250"/>
