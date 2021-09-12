@@ -11,6 +11,10 @@ module.exports = {
     mode: mode,
     target: target,
 
+    output: {
+        assetModuleFilename: "images/[hash][ext][query]"
+    },
+
     module: {
         rules: [
             {
@@ -22,7 +26,24 @@ module.exports = {
             },
             {
                 test: /\.(s[ac]|c)ss$/i,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {publicPath: "" }
+                    },
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader"
+                ],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: "asset", //resource, inline
+                // parser: {
+                //     dataUrlCondition: {
+                //         maxSize: 30 * 1024
+                //     }
+                // }
             }
         ]
     },
